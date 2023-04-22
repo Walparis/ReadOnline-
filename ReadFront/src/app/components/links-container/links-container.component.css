@@ -1,0 +1,19 @@
+:host { 
+  display: contents; 
+}
+.links-container-links-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.links-container-text {
+  margin-right: var(--dl-space-space-doubleunit);
+}
+.links-container-text1 {
+  margin-right: var(--dl-space-space-doubleunit);
+}
+.links-container-text4 {
+  margin-right: var(--dl-space-space-doubleunit);
+}
