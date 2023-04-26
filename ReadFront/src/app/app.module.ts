@@ -1,25 +1,30 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { ComponentsModule } from './components/components.module'
-import { AppComponent } from './app.component'
-
-const routes = [
-  {
-    path: '',
-    loadChildren: () =>
-      import('./pages/landing-page/landing-page.module').then(
-        (m) => m.LandingPageModule
-      ),
-  },
-]
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes), ComponentsModule],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    HomeComponent,
+    NotFoundComponent,
+    AboutComponent,
+    BookDetailComponent,
+    BookListComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
