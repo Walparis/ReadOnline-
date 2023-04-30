@@ -21,7 +21,5 @@ export class HomeComponent {
   constructor() {
     this.books.push(this.book1);
   }
-
-
 }
 
