@@ -13,6 +13,9 @@ class BookSerializer(serializers.Serializer):
     # author = serializers.PrimaryKeyRelatedField(many=True,
     #                                             queryset=Author.objects.all())
     author = AuthorSerializer(many=True)
+    # author = serializers.IntegerField()
+
+
     image = serializers.CharField()
     title = serializers.CharField()
     genre = serializers.CharField()

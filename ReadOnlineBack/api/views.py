@@ -3,6 +3,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 from django.core import serializers
+from rest_framework.response import Response
+
 from api import serializers
 from api.models import Book, Author, Manager
 
@@ -36,7 +38,7 @@ def book_list(request):
         book = Book.objects.create(author=author_obj, image=image, title=title, genre=genre, description=description,
                                    likes=likes,
                                    cost=cost)
-        return JsonResponse(book.to_json(), safe=False)
+        return Response(book.to_json(), safe=False)
 
 
 @csrf_exempt

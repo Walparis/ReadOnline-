@@ -19,7 +19,8 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    author = models.ForeignKey(Author, related_name="books", on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    # author = models.IntegerField()
     image = models.CharField(max_length=1000)
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
