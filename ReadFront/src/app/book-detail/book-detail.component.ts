@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Book} from "../../interfaces/interface";
 import {ActivatedRoute} from "@angular/router";
 @Component({
@@ -7,7 +7,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-  book : Book;
+  @Input() book : Book;
   loaded: boolean;
   ReturnBack(){
     window.location.href = `http://localhost:4200/books`;

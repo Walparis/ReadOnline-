@@ -1,4 +1,8 @@
-<h1>Trending:</h1>
+<!-- <h1>Trending:</h1>
 <div *ngFor = "let book of books">
   <p >{{book.image}} - <a [routerLink]="['/books', book.id]">{{book.name}}</a></p>
+</div> -->
+
+<div *ngIf="data`.length" class="products">
+  <app-product *ngFor="let item of data;" [product]="item"></app-product>
 </div>
