@@ -1,9 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Book} from "../../interfaces/interface";
 import {ActivatedRoute} from "@angular/router";
 import {BooksService} from "../books.service";
 import {HomeComponent} from "../home/home.component";
-
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
@@ -65,3 +65,6 @@ export class BookDetailComponent implements OnInit {
     // )
   }
 }
+
+
+
