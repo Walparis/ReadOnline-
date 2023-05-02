@@ -10,7 +10,11 @@ import { AboutComponent } from './about/about.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookComponent } from './book/book.component';
-
+import {HttpClientModule} from "@angular/common/http";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatToolbar} from "@angular/material/toolbar";
+import {FilterPipe} from "./shared/filter.pipe";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +24,14 @@ import { BookComponent } from './book/book.component';
     AboutComponent,
     BookDetailComponent,
     BookListComponent,
-    BookComponent
+    BookComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

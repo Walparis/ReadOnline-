@@ -7,5 +7,5 @@ import {Book} from "../../interfaces/interface";
   styleUrls: ['./book.component.css']
 })
 export class BookComponent {
-  @Input() book : Book;
+  @Input() book !: Book;
 }

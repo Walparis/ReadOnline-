@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import { Book} from "../../interfaces/interface";
+import {map} from "rxjs/operators";
+import {books} from "../fakedb";
 
 @Component({
   selector: 'app-home',
@@ -8,20 +10,23 @@ import { Book} from "../../interfaces/interface";
 })
 export class HomeComponent {
   books: Book[] = [];
-  book1: Book = {
-    id : '1',
-    image : "https://i.dummyjson.com/data/products/1/4.jpg",
-    name : "b1",
-    author : "a1",
-    genre : "g1",
-    description : "cakbhkcbakcbdkbc",
-    likes : 0,
-    cost : 250000
-  };
+
+  // books = books.reverse();
+  // @ViewChild('searchbar') searchbar: ElementRef;
+  // searchText = '';
+  //
+  // toggleSearch: boolean = false;
   constructor() {
-    this.books.push(this.book1);
+
   }
 
-
+  // openSearch() {
+  //   this.toggleSearch = true;
+  //   this.searchbar.nativeElement.focus();
+  // }
+  // searchClose() {
+  //   this.searchText = '';
+  //   this.toggleSearch = false;
+  // }
 }
 

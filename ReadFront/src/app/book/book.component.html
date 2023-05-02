@@ -1,8 +1,11 @@
-<div class="product">
-  <img [src]="book.image" alt="" />
-  <h6>{{book['name']}}</h6>
-  <div>Price: <strong>{{book.cost}}</strong></div>
-  <div>
-    {{book['description']}}
-  </div>
+<div>
+  <h1>
+    <a [routerLink]="['/books/', book.id]">{{book.title}}</a>
+  </h1>
+  <img [src]=book.image alt="" />
+
+<!--  <div>Price: <strong>{{book.cost}}</strong></div>-->
+<!--  <div>-->
+<!--    {{book['description']}}-->
+<!--  </div>-->
 </div>

@@ -8,8 +8,8 @@ import {BookDetailComponent} from "./book-detail/book-detail.component";
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'about', component: AboutComponent},
-  {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path: 'books/:id',component: BookDetailComponent},
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path : '**' , component : NotFoundComponent}
 ];
 

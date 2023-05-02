@@ -7,15 +7,17 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         field = ('id', 'name')
 
+class BookSerializer2(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('id', 'author','image', 'title', 'genre', 'description', 'likes', 'cost')
 
 class BookSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     # author = serializers.PrimaryKeyRelatedField(many=True,
     #                                             queryset=Author.objects.all())
-    author = AuthorSerializer(many=True)
+    author = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all())
     # author = serializers.IntegerField()
-
-
     image = serializers.CharField()
     title = serializers.CharField()
     genre = serializers.CharField()
@@ -26,7 +28,7 @@ class BookSerializer(serializers.Serializer):
 
     class Meta:
         model = Book
-        fields = ('id', 'author', 'image', 'title', 'genre', 'description', 'likes', 'cost')
+        fields = ('id','author', 'image', 'title', 'genre', 'description', 'likes', 'cost')
 
     def create(self, validated_data):
         pass

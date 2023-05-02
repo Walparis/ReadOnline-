@@ -1,8 +1,13 @@
+export interface Author{
+  id: string,
+  name:string
+  description: string
+}
 export interface Book{
   id: string,
   image: string ,
-  name: string,
-  author: string,
+  title: string,
+  author: Author,
   genre:string,
   description : string,
   likes : number,

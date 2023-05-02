@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from '../interfaces/interface';
+import {BooksService} from "./books.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +8,27 @@ import { Book } from '../interfaces/interface';
 })
 export class AppComponent {
   title = 'ReadFront';
-  books : Book[] =[];
-  constructor() { }
+  newCost: number;
+  logged: boolean = false;
+  username:string = '';
+  password: string = '';
+  constructor(private bookService: BooksService) { }
+
+  login(){
+    this.bookService.login(this.username, this.password).subscribe((data)=>{
+      localStorage.setItem('token', data.token)
+      this.logged = true;
+      this.username = '';
+      this.password = '';
+      this.getBooks();
+    });
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    //Request to the Django
+    this.logged = false;
+  }
+
+
 }

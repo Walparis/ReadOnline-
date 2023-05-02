@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-
+User = get_user_model()
 # Create your models here.
 
 class Author(models.Model):
@@ -38,7 +39,7 @@ class Book(models.Model):
     def to_json(self):
         return {
             'id': self.id,
-            'author': self.author,
+            'author': self.author.to_json(),
             'image': self.image,
             'title': self.title,
             'genre': self.genre,
