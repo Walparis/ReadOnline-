@@ -1,3 +1,4 @@
+
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from "../../interfaces/interface";
 import {ActivatedRoute} from "@angular/router";
@@ -47,3 +48,4 @@ export class BookDetailComponent implements OnInit {
     // )
   }
 }
+

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Book} from "../interfaces/interface";
+import { Book, AuthToken} from "../interfaces/interface";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,12 @@ export class BooksService {
 
   getBookById(book_id: number): Observable<Book>{
     return this.client.get<Book>(`${this.BASE_URL}/api/books/${book_id}`)
+  }
+  login(username: string, password: string): Observable<AuthToken> {
+    return this.client.post<AuthToken>(
+      `${this.BASE_URL}/api/login/`,
+      {username, password}
+    )
   }
 
 }

@@ -13,3 +13,6 @@ export interface Book{
   likes : number,
   cost : number
 }
+export interface AuthToken {
+  token: string;
+}

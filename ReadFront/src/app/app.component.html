@@ -1,11 +1,8 @@
-<app-top-bar></app-top-bar>
-<div>
-  <a routerLink = "/home">Home</a><br>
-  <a routerLink = "/about">About</a>
-</div>
-<router-outlet></router-outlet>
 
-<ng-container ngIf="!logged">
+<div><app-top-bar></app-top-bar></div>
+
+
+<ng-container *ngIf="!logged">
   <h2>Login form</h2>
   <div>
     <fieldset>
@@ -20,20 +17,18 @@
   </div>
 </ng-container>
 
-<ng-containerngIf="logged">
-<button (click)="logout()">Log out</button>
-<h1>Welcome!</h1>
-<fieldset>
-  <label>Category name: </label>
-  <input type="text" [(ngModel)]="newCategory">
-  <button (click)="addCategory()">Add category</button>
-</fieldset>
+<ng-container *ngIf="logged">
+  <button (click)="logout()">Log out</button>
+  <h1>Welcome!</h1>
+  <fieldset>
+    <router-outlet></router-outlet>
+  </fieldset>
 
-<ul>
-  <li *ngFor="let category of categories">
-    {{category.id}} - {{category.name}}
-    <button (click)="deleteCategory(category.id)">X</button>
-  </li>
-</ul>
+  <ul>
+<!--    <li *ngFor="let category of categories">-->
+<!--      {{category.id}} - {{category.name}}-->
+<!--      <button (click)="deleteCategory(category.id)">X</button>-->
+<!--    </li>-->
+  </ul>
 
 </ng-container>

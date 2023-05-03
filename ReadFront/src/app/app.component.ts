@@ -20,7 +20,6 @@ export class AppComponent {
       this.logged = true;
       this.username = '';
       this.password = '';
-      this.getBooks();
     });
   }
 

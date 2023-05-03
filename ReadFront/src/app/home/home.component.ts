@@ -1,3 +1,4 @@
+
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import { Book} from "../../interfaces/interface";
 import {map} from "rxjs/operators";
@@ -29,4 +30,5 @@ export class HomeComponent {
   //   this.toggleSearch = false;
   // }
 }
+
 
