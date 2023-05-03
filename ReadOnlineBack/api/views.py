@@ -1,9 +1,13 @@
+
 from django.shortcuts import render
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
-from django.core import serializers
-from rest_framework.response import Response
+
+
+
+
+
 
 from api import serializers
 from api.models import Book, Author, Manager
@@ -19,7 +23,9 @@ from api.serializers import AuthorSerializer, ManagerSerializer, BookSerializer,
 def book_list(request):
     if request.method == 'GET':
         books = Book.objects.all()
-        serializer = BookSerializer2(books, many = True)
+
+        serializer = BookSerializer2(books, many=True)
+
         return JsonResponse(serializer.data, safe=False)
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -38,7 +44,9 @@ def book_list(request):
         book = Book.objects.create(author=author_obj, image=image, title=title, genre=genre, description=description,
                                    likes=likes,
                                    cost=cost)
+
         return JsonResponse(book.to_json(), safe = False)
+
 
 
 @csrf_exempt
@@ -48,7 +56,9 @@ def book_detail(request, book_id):
     except Book.DoesNotExist as e:
         return JsonResponse({'error': str(e)}, status=400)
     if request.method == 'GET':
+
         return JsonResponse(book.to_json(), safe = False)
+
     elif request.method == 'PUT':
         data = json.loads(request.body)
         new_cost = data.get('cost', book.cost)

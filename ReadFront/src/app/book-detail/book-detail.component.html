@@ -1,17 +1,17 @@
-<div *ngIf = "book.id != null">
-  <div *ngIf="loaded">
-    <h1>Album detail #{{book.id}}</h1>
-    <h2>{{book.image}}</h2>
-    <h2>{{book.name}}</h2>
-    <a class="link" routerLink="/books/{{book.id}}/text">Read</a>
-    <button type = "button" (click) = "Like()">Like</button>
-    <p>
-      <button type = "button" (click) = "ReturnBack()">Return back</button>
-    </p>
-  </div>
+<div>
+    <div *ngIf="loaded">
+      <h1>{{book.title}}</h1>
+<!--      <h1>Book detail of "{{book.name}}"</h1>-->
+      <img src="{{book.image}}" /> <br>
+      <a class="link" routerLink="/books/{{book.id}}/text">Read</a>
+      <h2>Cost: {{book.cost}}</h2>
+      <h2>Author: {{book.author["name"]}}</h2>
+      <button type = "button" (click) = "Like()">Like</button>
+      <p>
+        <button type = "button" (click) = "ReturnBack()">Return back</button>
+      </p>
+    </div>
 
-  <h3 *ngIf="!loaded">Album is loading...</h3>
+    <h3 *ngIf="!loaded">Album is loading...</h3>
 </div>
-<div *ngIf = "book.id == null">
-  <p>Not found, please enter a different id</p>
-</div>
+
